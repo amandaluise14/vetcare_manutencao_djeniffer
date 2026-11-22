@@ -37,11 +37,16 @@ include __DIR__ . '/../includes/header.php';
     <form method="post">
         <div class="field"><label>Nome</label><input name="nome" value="<?= htmlspecialchars($r['nome']) ?>" required>
         </div>
-        <div class="field"><label>Telefone</label><input name="telefone" value="<?= htmlspecialchars($r['telefone']) ?>">
+        <div class="field">
+            <label>Telefone</label>
+            <input type="tel" name="telefone" value="<?= htmlspecialchars($r['telefone']) ?>"
+                placeholder="(47) 99999-9999" pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}"
+                title="Digite um telefone válido. Exemplo: (47) 99999-9999" maxlength="15" required>
         </div>
         <div class="field"><label>E-mail</label><input type="email" name="email"
                 value="<?= htmlspecialchars($r['email']) ?>"></div>
-        <div class="field"><label>Endereço</label><input name="endereco" value="<?= htmlspecialchars($r['endereco']) ?>">
+        <div class="field"><label>Endereço</label><input name="endereco"
+                value="<?= htmlspecialchars($r['endereco']) ?>">
         </div>
         <?php if ($id): ?>
             <div class="field"><label>Situação</label><select name="ativo">
