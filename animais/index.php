@@ -55,6 +55,7 @@ include __DIR__ . '/../includes/header.php';
             <th>Tutor</th>
             <th>Nascimento</th>
             <th>Idade</th>
+            <th>Situação</th>
             <th>Ações</th>
         </tr>
 
@@ -83,7 +84,9 @@ include __DIR__ . '/../includes/header.php';
                 </td>
 
                 <td><?= $idade ?> ano(s)</td>
-
+                <td>
+                    <?= $r['ativo'] ? 'Ativo' : 'Inativo' ?>
+                </td>
                 <td>
                     <a href="form.php?id=<?= $r['id'] ?>">Editar</a> |
 
