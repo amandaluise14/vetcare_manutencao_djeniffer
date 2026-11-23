@@ -9,7 +9,12 @@ if ($id) {
     $s->execute([$id]);
     $r = $s->fetch() ?: $r;
 }
-$tutores = $pdo->query("SELECT id,nome FROM tutores ORDER BY nome")->fetchAll();
+$tutores = $pdo->query("
+    SELECT id, nome
+    FROM tutores
+    WHERE ativo = 1
+    ORDER BY nome
+")->fetchAll();
 $erro = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = trim($_POST['nome'] ?? '');
